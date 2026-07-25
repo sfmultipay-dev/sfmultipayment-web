@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cara Pendaftaran - SF Multi Payment</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon-package/favicon-96x96.png">
+  <link rel="icon" href="assets/favicon-package/favicon.svg" type="image/svg+xml" sizes="any">
+  <link rel="icon" href="assets/favicon-package/favicon.ico">
+  <link rel="apple-touch-icon" href="assets/favicon-package/apple-touch-icon.png">
+  <link rel="manifest" href="assets/favicon-package/site.webmanifest">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+
+<body class="font-sans bg-white text-gray-900">
+
+  <!-- Navbar -->
+  <nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <a href="index.html" class="flex items-center gap-2">
+          <img src="assets/sfg_logo.png" alt="SF Logo" class="w-10 h-10 object-contain" />
+          <div class="block">
+            <div class="font-bold text-base sm:text-xl text-gray-900">SF Multi Payment</div>
+            <div class="text-xs text-gray-500">by Setia Famili Group</div>
+          </div>
+        </a>
+        <div class="hidden md:flex items-center gap-6">
+          <a href="index.html" class="text-gray-700 hover:text-blue-600 transition-colors">Beranda</a>
+          <a href="pendaftaran.html" class="text-blue-600 font-semibold transition-colors">Cara Pendaftaran</a>
+          <a href="kontak.html" class="text-gray-700 hover:text-blue-600 transition-colors">Hubungi Kami</a>
+          <a href="fiturhapusakun.html" class="text-gray-700 hover:text-blue-600 transition-colors">Hapus Akun</a>
+          <button onclick="handleDownload()"
+            class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition-colors font-medium">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+            </svg>
+            Download Sekarang
+          </button>
+        </div>
+        <button class="md:hidden p-2" onclick="toggleMobileMenu()">
+          <svg id="icon-menu" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <div id="mobile-menu" class="md:hidden hidden pb-4 space-y-1">
+        <a href="index.html" class="block px-4 py-2 rounded-lg text-gray-700 hover:bg-gray-50">Beranda</a>
+        <a href="pendaftaran.html" class="block px-4 py-2 rounded-lg bg-blue-50 text-blue-600 font-medium">Cara
+          Pendaftaran</a>
+        <a href="kontak.html" class="block px-4 py-2 rounded-lg text-gray-700 hover:bg-gray-50">Hubungi Kami</a>
+        <a href="fiturhapusakun.html" class="block px-4 py-2 rounded-lg text-gray-700 hover:bg-gray-50">Hapus Akun</a>
+        <div class="px-4 pt-2">
+          <button onclick="handleDownload()"
+            class="w-full bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center justify-center gap-2 font-medium">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+            </svg>
+            Download Sekarang
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-blue-600 to-purple-700 text-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <span
+          class="inline-block bg-white/20 text-white border border-white/30 px-3 py-1 rounded-full text-sm font-medium mb-4">Panduan
+          Lengkap</span>
+        <h1 class="text-4xl lg:text-5xl font-bold mb-4">Cara Pendaftaran Agen</h1>
+        <p class="text-xl text-blue-100">Ikuti langkah mudah berikut untuk menjadi agen resmi SF Multi Payment dan mulai
+          menghasilkan keuntungan</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Requirements -->
+  <section class="py-12 bg-white border-b">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-blue-50 border border-blue-200 rounded-xl p-6">
+        <div class="flex items-center gap-2 mb-3">
+          <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="12" y1="8" x2="12" y2="12" />
+            <line x1="12" y1="16" x2="12.01" y2="16" />
+          </svg>
+          <h2 class="font-semibold text-blue-700 text-lg">Syarat Pendaftaran</h2>
+        </div>
+        <ul class="space-y-2 mt-4">
+          <li class="flex items-start gap-2">
+            <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span class="text-gray-700">Smartphone Android versi 5.0 atau lebih tinggi</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span class="text-gray-700">Nomor HP aktif yang dapat menerima SMS</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span class="text-gray-700">WhatsApp aktif dengan nomor HP yang sama saat di daftarkan</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span class="text-gray-700">KTP untuk verifikasi (opsional, untuk upgrade level)</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span class="text-gray-700">Modal awal minimal Rp 10.000</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Tutorial -->
+  <section class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <span class="inline-block bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-sm font-medium mb-4">Panduan
+          Visual</span>
+        <h2 class="text-3xl font-bold mb-4">Video Tutorial</h2>
+        <p class="text-lg text-gray-600">Ikuti video panduan berikut untuk melihat langkah-langkahnya secara langsung di
+          smartphone Anda</p>
+      </div>
+
+      <!-- Tab Switch -->
+      <div class="flex justify-center mb-10">
+        <div class="inline-flex bg-gray-100 rounded-xl p-1 gap-1">
+          <button id="tab-daftar" onclick="switchTab('daftar')"
+            class="px-6 py-2.5 rounded-lg text-sm font-semibold transition-all bg-blue-600 text-white shadow">
+            Cara Pendaftaran
+          </button>
+          <button id="tab-login" onclick="switchTab('login')"
+            class="px-6 py-2.5 rounded-lg text-sm font-semibold transition-all text-gray-600 hover:text-gray-900">
+            Cara Login
+          </button>
+        </div>
+      </div>
+
+      <!-- Video Frame: Redmi 9C Mockup -->
+      <div class="flex justify-center">
+        <!-- Outer body -->
+        <div class="relative flex-shrink-0" style="width: 248px;">
+          <!-- Phone body -->
+          <div class="bg-gray-900 rounded-[22px] shadow-2xl overflow-hidden" style="padding: 10px 8px 16px 8px;">
+            <!-- Top bezel: speaker + waterdrop notch -->
+            <div class="flex flex-col items-center mb-1">
+              <!-- Speaker -->
+              <div class="w-16 h-[5px] bg-gray-700 rounded-full mb-1.5"></div>
+              <!-- Waterdrop notch -->
+              <div class="w-[10px] h-[13px] bg-gray-900 rounded-b-full"></div>
+            </div>
+
+            <!-- Screen area -->
+            <div class="relative bg-gradient-to-br from-blue-50 to-purple-100 overflow-hidden rounded-[10px]"
+              style="aspect-ratio: 9/16;">
+
+              <!-- Panel: Cara Pendaftaran -->
+              <div id="panel-daftar"
+                class="absolute inset-0 flex flex-col items-center justify-center gap-4 px-6 text-center">
+                <!-- Placeholder: ganti seluruh konten div ini dengan <video> saat file sudah siap -->
+                <div class="w-14 h-14 bg-blue-600 rounded-full flex items-center justify-center shadow-lg">
+                  <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </div>
+                <p class="font-semibold text-gray-700 text-sm">Video Segera Tersedia</p>
+                <p class="text-xs text-gray-500">Tutorial cara pendaftaran akan ditampilkan di sini</p>
+                <!-- End placeholder -->
+              </div>
+
+              <!-- Panel: Cara Login -->
+              <div id="panel-login"
+                class="absolute inset-0 flex flex-col items-center justify-center gap-4 px-6 text-center hidden">
+                <!-- Placeholder: ganti seluruh konten div ini dengan <video> saat file sudah siap -->
+                <video id="video-login" class="w-full h-full object-cover cursor-pointer"
+                  onclick="this.paused ? this.play() : this.pause()" playsinline>
+                  <source src="assets/login_tutor.mp4" type="video/mp4">
+                </video>
+              </div>
+
+            </div>
+
+            <!-- Bottom bezel (chin) -->
+            <div class="flex justify-center mt-2">
+              <div class="w-10 h-[4px] bg-gray-700 rounded-full"></div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-10 bg-blue-50 border border-blue-200 rounded-xl p-5 max-w-2xl mx-auto">
+        <div class="flex items-start gap-3">
+          <svg class="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="12" y1="8" x2="12" y2="12" />
+            <line x1="12" y1="16" x2="12.01" y2="16" />
+          </svg>
+          <div>
+            <p class="font-semibold text-blue-800">Catatan</p>
+            <p class="text-blue-700 text-sm mt-1">Video tutorial sedang dalam proses pembuatan dan akan segera
+              ditambahkan di bagian ini.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Steps -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl lg:text-4xl font-bold mb-4">Langkah-langkah Pendaftaran</h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">Proses pendaftaran sangat mudah dan cepat, hanya membutuhkan
+          waktu sekitar 10 menit</p>
+      </div>
+
+      <div class="space-y-8">
+
+        <!-- Step 1 -->
+        <div class="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm">
+          <div class="bg-blue-50 px-6 py-5">
+            <div class="flex items-start gap-4">
+              <div
+                class="w-14 h-14 bg-gradient-to-br from-blue-600 to-purple-700 rounded-full flex items-center justify-center text-white font-bold text-xl flex-shrink-0">
+                1</div>
+              <div class="flex-1">
+                <h3 class="text-2xl font-semibold mb-2 flex items-center gap-3">
+                  <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                  </svg>
+                  Download Aplikasi
+                </h3>
+                <p class="text-gray-600">Download aplikasi SF Multi Payment dari Play Store atau tombol download di
+                  halaman ini</p>
+              </div>
+            </div>
+          </div>
+          <div class="px-6 py-5">
+            <ul class="space-y-3">
+              <li class="flex items-start gap-3"><svg class="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" fill="none"
+                  stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg><span class="text-gray-700">Pastikan perangkat Android Anda versi 5.0 atau lebih tinggi</span>
+              </li>
+              <li class="flex items-start gap-3"><svg class="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" fill="none"
+                  stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg><span class="text-gray-700">Ukuran aplikasi sekitar 15MB</span></li>
+              <li class="flex items-start gap-3"><svg class="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" fill="none"
+                  stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg><span class="text-gray-700">Download aplikasi dari link <a
+                    href="https://play.google.com/store/apps/details?id=com.otoreport.sfmultipaymentapk"
+                    class="text-blue-600 hover:underline">disini</a></span></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm">
+          <div class="bg-blue-50 px-6 py-5">
+            <div class="flex items-start gap-4">
+              <div
+                class="w-14 h-14 bg-gradient-to-br from-blue-600 to-purple-700 rounded-full flex items-center justify-center text-white font-bold text-xl flex-shrink-0">
+                2</div>
+              <div class="flex-1">
+                <h3 class="text-2xl font-semibold mb-2 flex items-center gap-3">
+                  <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
+                  </svg>
+                  Daftar Akun
+                </h3>
+                <p class="text-gray-600">Buka aplikasi dan isi formulir pendaftaran dengan data diri yang valid</p>
+              </div>
+            </div>
+          </div>
+          <div class="px-6 py-5">
+            <ul class="space-y-3">
+              <li class="flex items-start gap-3"><svg class="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" fill="none"
+                  stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg><span class="text-gray-700">Siapkan Nomor HP aktif untuk verifikasi</span></li>
+              <li class="flex items-start gap-3"><svg class="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" fill="none"
+                  stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg><span class="text-gray-700">Isi nama lengkap</span></li>
+              <li class="flex items-start gap-3"><svg class="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" fill="none"
+                  stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg><span class="text-gray-700">Masukkan nama pemilik</span></li>
+              <li class="flex items-start gap-3"><svg class="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" fill="none"
+                  stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg><span class="text-gray-700">Masukkan alamat</span></li>
+              <li class="flex items-start gap-3"><svg class="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" fill="none"
+                  stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg><span class="text-gray-700">Masukkan kode referral "BANDA ACEH"</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm">
+          <div class="bg-blue-50 px-6 py-5">
+            <div class="flex items-start gap-4">
+              <div
+                class="w-14 h-14 bg-gradient-to-br from-blue-600 to-purple-700 rounded-full flex items-center justify-center text-white font-bold text-xl flex-shrink-0">
+                3</div>
+              <div class="flex-1">
+                <h3 class="text-2xl font-semibold mb-2 flex items-center gap-3">
+                  <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                  </svg>
+                  Verifikasi Akun
+                </h3>
+                <p class="text-gray-600">Verifikasi nomor HP Anda melalui kode OTP yang dikirimkan via SMS</p>
+              </div>
+            </div>
+          </div>
+          <div class="px-6 py-5">
+            <ul class="space-y-3">
+              <li class="flex items-start gap-3"><svg class="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" fill="none"
+                  stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg><span class="text-gray-700">Kode OTP akan dikirim ke nomor HP Anda</span></li>
+              <li class="flex items-start gap-3"><svg class="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" fill="none"
+                  stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg><span class="text-gray-700">Masukkan 6 digit kode OTP</span></li>
+              <li class="flex items-start gap-3"><svg class="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" fill="none"
+                  stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg><span class="text-gray-700">Kode berlaku selama 5 menit</span></li>
+              <li class="flex items-start gap-3"><svg class="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" fill="none"
+                  stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg><span class="text-gray-700">Jika tidak menerima, klik ketik "sal" ke WA Center yang terdapat pada
+                  aplikasi</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm">
+          <div class="bg-blue-50 px-6 py-5">
+            <div class="flex items-start gap-4">
+              <div
+                class="w-14 h-14 bg-gradient-to-br from-blue-600 to-purple-700 rounded-full flex items-center justify-center text-white font-bold text-xl flex-shrink-0">
+                4</div>
+              <div class="flex-1">
+                <h3 class="text-2xl font-semibold mb-2 flex items-center gap-3">
+                  <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                  </svg>
+                  Deposit Saldo
+                </h3>
+                <p class="text-gray-600">Lakukan deposit awal untuk memulai transaksi</p>
+              </div>
+            </div>
+          </div>
+          <div class="px-6 py-5">
+            <ul class="space-y-3">
+              <li class="flex items-start gap-3"><svg class="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" fill="none"
+                  stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg><span class="text-gray-700">Minimal deposit pertama Rp 10.000</span></li>
+              <li class="flex items-start gap-3"><svg class="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" fill="none"
+                  stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg><span class="text-gray-700">Transfer ke rekening resmi SF Multi Payment</span></li>
+              <li class="flex items-start gap-3"><svg class="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" fill="none"
+                  stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg><span class="text-gray-700">Konfirmasi pembayaran ke CS</span></li>
+              <li class="flex items-start gap-3"><svg class="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" fill="none"
+                  stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg><span class="text-gray-700">Saldo akan masuk maksimal 10 menit</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm">
+          <div class="bg-blue-50 px-6 py-5">
+            <div class="flex items-start gap-4">
+              <div
+                class="w-14 h-14 bg-gradient-to-br from-blue-600 to-purple-700 rounded-full flex items-center justify-center text-white font-bold text-xl flex-shrink-0">
+                5</div>
+              <div class="flex-1">
+                <h3 class="text-2xl font-semibold mb-2 flex items-center gap-3">
+                  <svg class="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  Mulai Transaksi
+                </h3>
+                <p class="text-gray-600">Akun Anda aktif dan siap untuk melakukan transaksi</p>
+              </div>
+            </div>
+          </div>
+          <div class="px-6 py-5">
+            <ul class="space-y-3">
+              <li class="flex items-start gap-3"><svg class="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" fill="none"
+                  stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg><span class="text-gray-700">Jelajahi produk yang tersedia</span></li>
+              <li class="flex items-start gap-3"><svg class="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" fill="none"
+                  stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg><span class="text-gray-700">Lakukan transaksi pertama Anda</span></li>
+              <li class="flex items-start gap-3"><svg class="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" fill="none"
+                  stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg><span class="text-gray-700">Pantau saldo dan riwayat transaksi</span></li>
+              <li class="flex items-start gap-3"><svg class="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" fill="none"
+                  stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg><span class="text-gray-700">Nikmati komisi dari setiap transaksi</span></li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-gradient-to-br from-blue-600 to-purple-700 text-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl lg:text-4xl font-bold mb-4">Siap Untuk Memulai?</h2>
+      <p class="text-xl text-blue-100 mb-8">Download aplikasi sekarang dan mulai perjalanan bisnis Anda bersama kami</p>
+      <button onclick="handleDownload()"
+        class="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded-lg font-semibold inline-flex items-center gap-2 transition-colors">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+        </svg>
+        Download Aplikasi Sekarang
+      </button>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-300 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div>
+          <div class="flex items-center gap-2 mb-4">
+            <img src="assets/sfg_logo.png" alt="SF Logo" class="w-10 h-10 object-contain" />
+            <div>
+              <div class="font-bold text-white">SF Multi Payment</div>
+              <div class="text-xs">by Setia Famili Group</div>
+            </div>
+          </div>
+          <p class="text-sm">Platform agen pulsa, internet, dan PPOB terpercaya dengan aplikasi Android yang mudah
+            digunakan</p>
+        </div>
+        <div>
+          <h3 class="font-semibold text-white mb-4">Menu</h3>
+          <ul class="space-y-2 text-sm">
+            <li><a href="index.html" class="hover:text-white transition-colors">Beranda</a></li>
+            <li><a href="pendaftaran.html" class="hover:text-white transition-colors">Cara Pendaftaran</a></li>
+            <li><a href="kontak.html" class="hover:text-white transition-colors">Hubungi Kami</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-semibold text-white mb-4">Kontak</h3>
+          <ul class="space-y-2 text-sm">
+            <li>Telp: 0853-6021-2727</li>
+            <li>WhatsApp: 0853-6021-2727</li>
+            <li>Telegram: @cssfreload</li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 mt-8 pt-6">
+        <p class="text-white font-semibold text-sm mb-3">📍 Lokasi Kami</p>
+        <div class="rounded-xl overflow-hidden" style="height: 220px;">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d992.7743216560436!2d95.31568166948267!3d5.552594334464256!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3040373e037b2e73%3A0x2f327c6b42ff65b8!2ssetia%20famili%20group!5e0!3m2!1sid!2sid!4v1782120106175!5m2!1sid!2sid"
+            width="100%" height="220" style="border: 0; display: block; width: 100%; height: 100%;" allowfullscreen=""
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="mt-3 flex items-center justify-between flex-wrap gap-2">
+          <p class="text-gray-400 text-sm">Setia Famili Group, Banda Aceh, Aceh, Indonesia</p>
+          <a href="https://maps.app.goo.gl/BAZVhaND465BnC4r6" target="_blank" rel="noopener noreferrer"
+            class="text-blue-400 hover:text-blue-300 text-sm transition-colors">Buka di Google Maps →</a>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 mt-6 pt-6 text-center text-sm">
+        <p>&copy; <span id="year"></span> SF Multi Payment. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function switchTab(tab) {
+      const panels = { daftar: 'panel-daftar', login: 'panel-login' };
+      const tabs = { daftar: 'tab-daftar', login: 'tab-login' };
+
+      // Toggle panels
+      Object.keys(panels).forEach(key => {
+        document.getElementById(panels[key]).classList.toggle('hidden', key !== tab);
+      });
+
+      // Toggle tab styles
+      Object.keys(tabs).forEach(key => {
+        const btn = document.getElementById(tabs[key]);
+        if (key === tab) {
+          btn.classList.add('bg-blue-600', 'text-white', 'shadow');
+          btn.classList.remove('text-gray-600');
+        } else {
+          btn.classList.remove('bg-blue-600', 'text-white', 'shadow');
+          btn.classList.add('text-gray-600');
+        }
+      });
+    }
+    document.getElementById('year').textContent = new Date().getFullYear();
+    function handleDownload() {
+      window.open('https://play.google.com/store/apps/details?id=com.otoreport.sfmultipaymentapk');
+    }
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      const iconMenu = document.getElementById('icon-menu');
+      const iconClose = document.getElementById('icon-close');
+      menu.classList.toggle('hidden');
+      iconMenu.classList.toggle('hidden');
+      iconClose.classList.toggle('hidden');
+    }
+  </script>
+</body>
+
+</html>
