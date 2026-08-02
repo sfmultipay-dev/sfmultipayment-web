@@ -173,7 +173,7 @@
         </div>
       </div>
 
-      <!-- Video Frame: Redmi 9C Mockup -->
+      <!-- Video Frame: Mockup -->
       <div class="flex justify-center">
         <!-- Outer body -->
         <div class="relative flex-shrink-0" style="width: 248px;">
@@ -194,26 +194,18 @@
               <!-- Panel: Cara Pendaftaran -->
               <div id="panel-daftar"
                 class="absolute inset-0 flex flex-col items-center justify-center gap-4 px-6 text-center">
-                <!-- Placeholder: ganti seluruh konten div ini dengan <video> saat file sudah siap -->
-                <div class="w-14 h-14 bg-blue-600 rounded-full flex items-center justify-center shadow-lg">
-                  <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                </div>
-                <p class="font-semibold text-gray-700 text-sm">Video Segera Tersedia</p>
-                <p class="text-xs text-gray-500">Tutorial cara pendaftaran akan ditampilkan di sini</p>
-                <!-- End placeholder -->
+                <video id="video-daftar" class="w-full h-full object-cover" controls playsinline>
+                  <source src="assets/daftar_tutor.mp4" type="video/mp4">
+                </video>
               </div>
 
               <!-- Panel: Cara Login -->
               <div id="panel-login"
                 class="absolute inset-0 flex flex-col items-center justify-center gap-4 px-6 text-center hidden">
-                <!-- Placeholder: ganti seluruh konten div ini dengan <video> saat file sudah siap -->
                 <video id="video-login" class="w-full h-full object-cover" controls playsinline>
                   <source src="assets/login_tutor.mp4" type="video/mp4">
                 </video>
               </div>
-
             </div>
 
             <!-- Bottom bezel (chin) -->
