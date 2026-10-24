@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Format Transaksi - SF Multi Payment</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon-package/favicon-96x96.png">
+  <link rel="icon" href="assets/favicon-package/favicon.svg" type="image/svg+xml" sizes="any">
+  <link rel="icon" href="assets/favicon-package/favicon.ico">
+  <link rel="apple-touch-icon" href="assets/favicon-package/apple-touch-icon.png">
+  <link rel="manifest" href="assets/favicon-package/site.webmanifest">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .nav-link.active {
+      color: #2563eb;
+      font-weight: 600;
+    }
+
+
+    .param {
+      background: #dbeafe;
+      color: #1d4ed8;
+      border-radius: 4px;
+      padding: 0 4px;
+    }
+
+    .copy-btn.copied {
+      background-color: #16a34a;
+      color: #fff;
+      border-color: #16a34a;
+    }
+
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+    }
+  </style>
+</head>
+
+<body class="font-sans bg-white text-gray-900">
+
+  <!-- Navbar -->
+  <nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <a href="index.html" class="flex items-center gap-2">
+          <img src="assets/sfg_logo.png" alt="SF Logo" class="w-10 h-10 object-contain" />
+          <div class="block">
+            <div class="font-bold text-base sm:text-xl text-gray-900">SF Multi Payment</div>
+            <div class="text-xs text-gray-500">by Setia Famili Group</div>
+          </div>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-6">
+          <a href="index.html" class="nav-link text-gray-700 hover:text-blue-600 transition-colors">Beranda</a>
+          <a href="pendaftaran.html" class="nav-link text-gray-700 hover:text-blue-600 transition-colors">Cara
+            Pendaftaran</a>
+          <a href="formattransaksi.html" class="nav-link active transition-colors">Format Transaksi</a>
+          <a href="kontak.html" class="nav-link text-gray-700 hover:text-blue-600 transition-colors">Hubungi Kami</a>
+          <a href="fiturhapusakun.html" class="text-gray-700 hover:text-blue-600 transition-colors">Hapus Akun</a>
+          <button onclick="handleDownload()"
+            class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition-colors font-medium">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+            </svg>
+            Download Sekarang
+          </button>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button class="md:hidden p-2" onclick="toggleMobileMenu()" aria-label="Buka menu">
+          <svg id="icon-menu" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="mobile-menu" class="md:hidden hidden pb-4 space-y-1">
+        <a href="index.html" class="block px-4 py-2 rounded-lg text-gray-700 hover:bg-gray-50 transition-colors">Beranda</a>
+        <a href="pendaftaran.html"
+          class="block px-4 py-2 rounded-lg text-gray-700 hover:bg-gray-50 transition-colors">Cara Pendaftaran</a>
+        <a href="formattransaksi.html" class="block px-4 py-2 rounded-lg bg-blue-50 text-blue-600 font-medium">Format
+          Transaksi</a>
+        <a href="kontak.html"
+          class="block px-4 py-2 rounded-lg text-gray-700 hover:bg-gray-50 transition-colors">Hubungi Kami</a>
+        <a href="fiturhapusakun.html" class="block px-4 py-2 rounded-lg text-gray-700 hover:bg-gray-50">Hapus Akun</a>
+        <div class="px-4 pt-2">
+          <button onclick="handleDownload()"
+            class="w-full bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center justify-center gap-2 transition-colors font-medium">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+            </svg>
+            Download Sekarang
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-blue-600 via-blue-700 to-purple-700 text-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-20 text-center">
+      <span
+        class="inline-block bg-white/20 text-white border border-white/30 px-3 py-1 rounded-full text-sm font-medium mb-5">WhatsApp
+        Center</span>
+      <h1 class="text-4xl lg:text-5xl font-bold leading-tight">Format Transaksi</h1>
+      <p class="mt-4 text-lg lg:text-xl text-blue-100">Kirim format di bawah ini ke WhatsApp Center kami untuk transaksi dan
+        cek akun. Cukup salin, isi datanya, lalu kirim.</p>
+
+    </div>
+  </section>
+
+  <!-- Cara pakai -->
+  <section class="border-b bg-gray-50">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <h2 class="font-semibold text-gray-900 mb-4">Cara memakai format</h2>
+      <ol class="grid sm:grid-cols-3 gap-4 text-sm text-gray-700">
+        <li class="flex gap-3">
+          <span
+            class="flex-shrink-0 w-7 h-7 rounded-full bg-blue-600 text-white font-semibold flex items-center justify-center">1</span>
+          <span>Tekan <strong>Salin</strong> pada format yang dibutuhkan.</span>
+        </li>
+        <li class="flex gap-3">
+          <span
+            class="flex-shrink-0 w-7 h-7 rounded-full bg-blue-600 text-white font-semibold flex items-center justify-center">2</span>
+          <span>Ganti bagian yang <span class="param">berwarna biru</span> dengan data Anda, misalnya nomor tujuan dan
+            PIN.</span>
+        </li>
+        <li class="flex gap-3">
+          <span
+            class="flex-shrink-0 w-7 h-7 rounded-full bg-blue-600 text-white font-semibold flex items-center justify-center">3</span>
+          <span>Kirim ke WhatsApp Center, lalu tunggu balasan dari bot.</span>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Daftar format -->
+  <section class="py-10 lg:py-14">
+    <div id="groups" class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12"></div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-gradient-to-br from-blue-600 to-purple-700 text-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-bold mb-3">Format tidak berhasil?</h2>
+      <p class="text-lg text-blue-100 mb-8">Pastikan penulisan sesuai contoh dan saldo mencukupi. Jika masih gagal, tim
+        kami siap membantu.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="kontak.html"
+          class="bg-white text-blue-600 hover:bg-gray-100 px-6 py-3 rounded-lg font-semibold flex items-center justify-center gap-2 transition-colors">Hubungi
+          Kami</a>
+        <button onclick="handleDownload()"
+          class="border border-white text-white hover:bg-white/10 px-6 py-3 rounded-lg font-semibold flex items-center justify-center gap-2 transition-colors">Download
+          Aplikasi</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-300 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div>
+          <div class="flex items-center gap-2 mb-4">
+            <img src="assets/sfg_logo.png" alt="SF Logo" class="w-10 h-10 object-contain" />
+            <div>
+              <div class="font-bold text-white">SF Multi Payment</div>
+              <div class="text-xs">by Setia Famili Group</div>
+            </div>
+          </div>
+          <p class="text-sm">Platform agen pulsa, internet, dan PPOB terpercaya dengan aplikasi Android yang mudah
+            digunakan</p>
+        </div>
+        <div>
+          <h3 class="font-semibold text-white mb-4">Menu</h3>
+          <ul class="space-y-2 text-sm">
+            <li><a href="index.html" class="hover:text-white transition-colors">Beranda</a></li>
+            <li><a href="pendaftaran.html" class="hover:text-white transition-colors">Cara Pendaftaran</a></li>
+            <li><a href="formattransaksi.html" class="hover:text-white transition-colors">Format Transaksi</a></li>
+            <li><a href="kontak.html" class="hover:text-white transition-colors">Hubungi Kami</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-semibold text-white mb-4">Kontak</h3>
+          <ul class="space-y-2 text-sm">
+            <li>Telp: 0853-6021-2727</li>
+            <li>WhatsApp: 0853-6021-2727</li>
+            <li>Telegram: @cssfreload</li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 mt-8 pt-6">
+        <p class="text-white font-semibold text-sm mb-3">📍 Lokasi Kami</p>
+        <div class="rounded-xl overflow-hidden" style="height: 220px;">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d992.7743216560436!2d95.31568166948267!3d5.552594334464256!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3040373e037b2e73%3A0x2f327c6b42ff65b8!2ssetia%20famili%20group!5e0!3m2!1sid!2sid!4v1782120106175!5m2!1sid!2sid"
+            width="100%" height="220" style="border: 0; display: block; width: 100%; height: 100%;" allowfullscreen=""
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="mt-3 flex items-center justify-between flex-wrap gap-2">
+          <p class="text-gray-400 text-sm">Setia Famili Group, Banda Aceh, Aceh, Indonesia</p>
+          <a href="https://maps.app.goo.gl/BAZVhaND465BnC4r6" target="_blank" rel="noopener noreferrer"
+            class="text-blue-400 hover:text-blue-300 text-sm transition-colors">Buka di Google Maps →</a>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 mt-6 pt-6 text-center text-sm">
+        <p>&copy; <span id="year"></span> SF Multi Payment. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function handleDownload() {
+      window.open('https://play.google.com/store/apps/details?id=com.otoreport.sfmultipaymentapk');
+    }
+
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+      document.getElementById('icon-menu').classList.toggle('hidden');
+      document.getElementById('icon-close').classList.toggle('hidden');
+    }
+
+    /* ==========================================================
+       DATA FORMAT
+       Tambah format baru cukup dengan menambah blok di dalam "items".
+       - title  : nama format
+       - desc   : penjelasan singkat
+       - format : format perintah, tanpa tanda { }
+       - params : bagian format yang diberi warna biru (yang harus diisi pengguna)
+       - example: contoh pengisian (opsional)
+       ========================================================== */
+    const GROUPS = [
+      {
+        title: 'Transaksi',
+        desc: 'Satu format untuk semua produk: pulsa, token listrik, game, dan lainnya.',
+        items: [
+          {
+            title: 'Beli produk',
+            desc: 'Kode produk mewakili semua jenis produk. Ganti dengan kode produk yang ingin dibeli.',
+            format: 'KODEPRODUK.NOMORTUJUAN.PIN',
+            params: ['KODEPRODUK', 'NOMORTUJUAN', 'PIN']
+          }
+        ]
+      },
+      {
+        title: 'Info akun',
+        desc: 'Cek data akun dan ubah PIN.',
+        items: [
+          {
+            title: 'Cek ID dan saldo',
+            desc: 'Menampilkan ID dan sisa saldo akun Anda.',
+            format: 'Sal'
+          },
+          {
+            title: 'Ubah PIN',
+            desc: 'Mengganti PIN lama dengan PIN baru.',
+            format: 'GP.PINLAMA.PINBARU',
+            params: ['PINLAMA', 'PINBARU'],
+            example: 'GP.1234.5678'
+          }
+        ]
+      }
+    ];
+
+    const groupsEl = document.getElementById('groups');
+    const copyTexts = [];
+
+    function esc(s) {
+      return String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    }
+
+    function highlight(text, params = []) {
+      const keys = params.map(p => p.toLowerCase());
+      return text.split('.').map(part =>
+        keys.includes(part.toLowerCase()) ? `<span class="param">${esc(part)}</span>` : esc(part)
+      ).join('.');
+    }
+
+    function card(item) {
+      const idx = copyTexts.push(item.format) - 1;
+      return `
+        <article class="border border-gray-200 rounded-xl p-5 flex flex-col">
+          <h3 class="font-semibold text-gray-900">${esc(item.title)}</h3>
+          <p class="mt-1 text-sm text-gray-600">${esc(item.desc)}</p>
+          <div class="mt-4 rounded-lg bg-gray-50 border border-gray-200 p-3">
+            <code class="block font-mono text-base text-gray-900 break-all">${highlight(item.format, item.params)}</code>
+          </div>
+          ${item.example ? `<p class="mt-3 text-sm text-gray-600">Contoh: <code class="font-mono text-gray-900">${esc(item.example)}</code></p>` : ''}
+          <button type="button" data-copy="${idx}"
+            class="copy-btn mt-4 self-start border border-blue-600 text-blue-600 hover:bg-blue-50 px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-2 transition-colors">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+            </svg>
+            <span class="label">Salin format</span>
+          </button>
+        </article>`;
+    }
+
+    groupsEl.innerHTML = GROUPS.map(g => `
+      <div>
+        <h2 class="text-2xl font-bold text-gray-900">${esc(g.title)}</h2>
+        <p class="mt-1 text-gray-600">${esc(g.desc)}</p>
+        <div class="mt-5 grid sm:grid-cols-2 gap-5">${g.items.map(card).join('')}</div>
+      </div>`).join('');
+
+    async function copyText(text) {
+      try {
+        await navigator.clipboard.writeText(text);
+      } catch (e) {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+      }
+    }
+
+    groupsEl.addEventListener('click', async e => {
+      const btn = e.target.closest('.copy-btn');
+      if (!btn) return;
+      await copyText(copyTexts[Number(btn.dataset.copy)]);
+      const label = btn.querySelector('.label');
+      btn.classList.add('copied');
+      label.textContent = 'Tersalin';
+      setTimeout(() => {
+        btn.classList.remove('copied');
+        label.textContent = 'Salin format';
+      }, 1800);
+    });
+  </script>
+</body>
+
+</html>
