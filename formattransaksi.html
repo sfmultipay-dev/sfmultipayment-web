@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Format Transaksi - SF Multi Payment</title>
+  <title>Format Transaksi WhatsApp - SF Multi Payment</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -125,12 +125,12 @@
 
   <!-- Hero -->
   <section class="bg-gradient-to-br from-blue-600 via-blue-700 to-purple-700 text-white">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-20 text-center">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-20">
       <span
         class="inline-block bg-white/20 text-white border border-white/30 px-3 py-1 rounded-full text-sm font-medium mb-5">WhatsApp
         Center</span>
       <h1 class="text-4xl lg:text-5xl font-bold leading-tight">Format Transaksi</h1>
-      <p class="mt-4 text-lg lg:text-xl text-blue-100">Kirim format di bawah ini ke WhatsApp Center kami untuk transaksi dan
+      <p class="mt-4 text-lg lg:text-xl text-blue-100 max-w-3xl">Kirim format di bawah ini ke WhatsApp Center kami untuk transaksi dan
         cek akun. Cukup salin, isi datanya, lalu kirim.</p>
 
     </div>
@@ -138,7 +138,7 @@
 
   <!-- Cara pakai -->
   <section class="border-b bg-gray-50">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <h2 class="font-semibold text-gray-900 mb-4">Cara memakai format</h2>
       <ol class="grid sm:grid-cols-3 gap-4 text-sm text-gray-700">
         <li class="flex gap-3">
@@ -163,7 +163,7 @@
 
   <!-- Daftar format -->
   <section class="py-10 lg:py-14">
-    <div id="groups" class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12"></div>
+    <div id="groups" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12"></div>
   </section>
 
   <!-- CTA -->
@@ -250,15 +250,7 @@
       document.getElementById('icon-close').classList.toggle('hidden');
     }
 
-    /* ==========================================================
-       DATA FORMAT
-       Tambah format baru cukup dengan menambah blok di dalam "items".
-       - title  : nama format
-       - desc   : penjelasan singkat
-       - format : format perintah, tanpa tanda { }
-       - params : bagian format yang diberi warna biru (yang harus diisi pengguna)
-       - example: contoh pengisian (opsional)
-       ========================================================== */
+    /* DATA FORMAT */
     const GROUPS = [
       {
         title: 'Transaksi',
